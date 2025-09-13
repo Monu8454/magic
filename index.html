@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <title>click open</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+  <h2>click open</h2>
+</p>
+
+  <a id="payLink"
+     href="7542067181@paytm"
+     style="display:inline-block;padding:14px 22px;background:#5b2be0;color:#fff;border-radius:10px;font-size:18px;text-decoration:none;">
+    click open 
+  </a>
+
+  <script>
+    // यहाँ अपनी UPI details डालें
+    const vpa  = "7542067181@paytm ,7542067181-2@ibl,7542067181@naviaxis";     // <- आपकी UPI ID
+    const name = "monu kumar";       // <- आपका नाम
+    const amt  = "500";              // <- राशि
+    const note = "Test Payment";    // <- remark
+    const txn  = "TXN12345";        // <- transaction reference
+
+    const upiLink = `upi://pay?pa=${encodeURIComponent(vpa)}&pn=${encodeURIComponent(name)}&am=${encodeURIComponent(amt)}&tn=${encodeURIComponent(note)}&tr=${encodeURIComponent(txn)}&cu=INR`;
+
+    // fallback link सेट करना
+    document.getElementById("payLink").href = upiLink;
+
+    // पेज लोड होते ही redirect कर दो
+    window.onload = function() {
+      window.location.href = upiLink;
+    };
+  </script>
+</body>
+</html>
